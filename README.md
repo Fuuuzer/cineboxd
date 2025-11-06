@@ -1,12 +1,66 @@
-# React + Vite
+<h1 align="center">🎬 Cineboxd</h1>
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+<p align="center">
+  <i>Descubra, avalie e favorite seus filmes favoritos – tudo em um só lugar!</i>  
+</p>
 
-Currently, two official plugins are available:
+<p align="center">
+  <img src="https://img.shields.io/badge/React-%5E18-blue?style=for-the-badge&logo=react" />
+  <img src="https://img.shields.io/badge/Vite-%5E5.0-purple?style=for-the-badge&logo=vite" />
+  <img src="https://img.shields.io/badge/Axios-HTTP-lightgrey?style=for-the-badge&logo=axios" />
+  <img src="https://img.shields.io/badge/TMDB-API-green?style=for-the-badge&logo=themoviedatabase" />
+</p>
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## 🌟 Sobre o projeto
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+O **Cineboxd** é uma aplicação web desenvolvida em **React + Vite** que permite aos usuários **explorar filmes, ver detalhes, e descobrir novas obras cinematográficas**.  
+Inspirado em plataformas como o **Letterboxd**, o projeto foi criado com o objetivo de praticar **consumo de APIs**, **componentização** e **boas práticas de front-end**.
+
+---
+
+## ⚙️ Tecnologias utilizadas
+
+| Tecnologia | Descrição |
+|-------------|------------|
+| ⚛️ **React** | Biblioteca principal da interface |
+| ⚡ **Vite** | Ferramenta de build rápida e leve |
+| 🌐 **Axios** | Requisições HTTP para a API do TMDB |
+| 🎨 **CSS** | Estilização da interface e responsividade |
+
+---
+
+## 🧩 Funcionalidades atuais
+
+- 🏆 Exibição de filmes populares
+- 🎞️ Página com sinopse, nota e pôster  
+
+---
+
+## 🚧 Futuras melhorias
+
+- 🪪 Sistema de **login e cadastro**  
+- ⭐ **Avaliação e comentários** de filmes  
+- 🎬 Página individual de cada filme com **reviews da comunidade**  
+- 📁 Criação de **listas personalizadas** (favoritos, assistir depois, etc.)
+
+---
+
+## 🛠️ Como rodar o projeto localmente
+
+
+# Clone o repositório
+git clone https://github.com/seu-usuario/cineboxd.git
+
+# Acesse a pasta do projeto
+cd cineboxd
+
+# Instale as dependências
+npm install
+
+# Crie um arquivo .env e adicione sua chave TMDB
+VITE_API_KEY=sua_chave_aqui
+
+# Inicie o servidor
+npm run dev
