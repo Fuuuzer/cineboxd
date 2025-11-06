@@ -50,13 +50,13 @@ Inspirado em plataformas como o **Letterboxd**, o projeto foi criado com o objet
 ## 🛠️ Como rodar o projeto localmente
 
 
-# Clone o repositório
+*Clone o repositório*
 git clone https://github.com/seu-usuario/cineboxd.git
 
-# Acesse a pasta do projeto
+## Acesse a pasta do projeto
 cd cineboxd
 
-# Instale as dependências
+## Instale as dependências
 npm install
 
 # Crie um arquivo .env e adicione sua chave TMDB
