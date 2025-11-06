@@ -66,3 +66,16 @@ VITE_API_KEY=sua_chave_aqui
 
 # Inicie o servidor
 npm run dev
+
+
+```
+
+## 👨‍💻 Autor
+
+Feito com 💙 por João Fuzer
+
+Sinta-se à vontade para contribuir, sugerir melhorias ou apenas deixar uma ⭐ no repositório!
+
+## 📄 Licença
+
+Este projeto é de código aberto e pode ser utilizado livremente para fins de aprendizado.
