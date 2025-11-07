@@ -42,7 +42,7 @@ main {
     }
     .bg-movie-name {
       position: absolute;
-      top: 50%;
+      top: 45%;
       align-self: flex-end;
       justify-self: center;
       a {
@@ -84,6 +84,7 @@ main {
 
 .modal {
   position: absolute;
+  align-self: center;
   max-width: 100%;
   max-height: fit-content;
   border-radius: 4px;

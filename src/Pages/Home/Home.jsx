@@ -7,7 +7,11 @@ import { validateForm } from '../../utils/validations'
 
 const Home = () => {
   const [ativo, setAtivo] = React.useState(false);
-
+  const [inputForm, setInputForm] = React.useState({
+    user: '',
+    email: '',
+    password: ''
+  })
   const toggleModal = () => {
     setAtivo(!ativo);
   }
@@ -31,7 +35,7 @@ const Home = () => {
             <form action="">
               <div>
                 <label htmlFor="email">Email</label>
-                <input type="email" id='email' />
+                <input on type="email" id='email' />
               </div>
 
               <div>
