@@ -53,7 +53,7 @@ Inspirado em plataformas como o **Letterboxd**, o projeto foi criado com o objet
 
 
 # Clone o repositório
-git clone https://github.com/seu-usuario/cineboxd.git
+git clone https://github.com/Fuuuzer/cindeboxd.git
 
 # Acesse a pasta do projeto
 cd cineboxd
