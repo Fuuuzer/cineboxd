@@ -16,7 +16,7 @@ const Home = () => {
     <>
       <main>
         <div className='hero'>
-          <span className='bg-movie-name'>Se Beber Não Case 3</span>
+          <span className='bg-movie-name'> <a href="">Se Beber Não Case 3 (2013)</a></span>
           <h1>
             Avalie filmes que já assistiu. <br></br>
             Salve os que você quer ver. <br></br>
