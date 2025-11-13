@@ -1,25 +1,27 @@
 import React from 'react'
 import { validateForm } from '../../utils/validations'
+import Input from '../Input/Input';
 
 export const FormSignUp = () => {
-  const [email, setEmail] = React.useState('');
+  const [form, setForm] = React.useState({
+    email: '',
+    user: '',
+    password: ''
+  });
 
 
   return (
     <form action="">
       <div>
-        <label htmlFor="email">Email</label>
-        <input onChange={(e) => setEmail(() => { e.target.value; console.log(e.target.value) })} value={email} type="email" id='email' />
+        <Input label='Email' id='email' type='email' value={form.email} setValue={setForm} />
       </div>
 
       <div>
-        <label htmlFor="username">Usuário</label>
-        <input type="text" id='username' />
+        <Input label='Usuário' id='username' type='text' value={form.user} setValue={setForm} />
       </div>
 
       <div>
-        <label htmlFor="senha">Senha</label>
-        <input type="password" id='senha' />
+        <Input label='Senha' id='senha' type='password' value={form.password} setValue={setForm} />
       </div>
 
       <button id='btn-form' onClick={(e) => { e.preventDefault(); validateForm() }}>Inscrever-se</button>
