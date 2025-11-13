@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Input = ({ id, label, type, setValue, value }) => {
+const Input = ({ id, label, type, setValue, value, ...props }) => {
   return (
     <>
       <label htmlFor={id}>{label}</label>
@@ -8,7 +8,11 @@ const Input = ({ id, label, type, setValue, value }) => {
         id={id}
         type={type}
         value={value}
-        onChange={({ target }) => { setValue(target.value); console.log(target.value) }}
+        onChange={({ target }) => setValue(prevForm => ({
+          ...prevForm,
+          [target.id]: target.value
+        }))}
+        {...props}
       />
     </>
 

@@ -9,10 +9,10 @@ export const FormSignUp = () => {
     password: ''
   });
 
-
   return (
     <form action="">
       <div>
+        <p>{form.email}</p>
         <Input label='Email' id='email' type='email' value={form.email} setValue={setForm} />
       </div>
 

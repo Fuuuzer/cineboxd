@@ -4,7 +4,6 @@ import { FormSignUp } from '../FormSignUp/FormSignUp';
 
 const Modal = ({ ativo, onClose }) => {
 
-
   React.useEffect(() => {
     const handleEsc = (e) => {
       if (e.key === "Escape") onClose();
