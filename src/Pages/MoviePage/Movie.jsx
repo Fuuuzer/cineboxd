@@ -22,11 +22,12 @@ const Movie = () => {
 
 
   return (
-    <div className='movie'>{movie.overview}
-      <h1>teste</h1>
-      <h1>teste</h1>
-      <h1>teste</h1>
-      <h1>teste</h1>
+    <div className='movie'>
+      <img src={`https://image.tmdb.org/t/p/w500/${movie.poster_path || movie.backdrop_path}`} alt={movie.title} />
+      <div>
+        <p>{movie.overview}</p>
+        <p>{movie.release_date}</p>
+      </div>
     </div>
   )
 }

@@ -1,5 +1,9 @@
 .movie {
-  margin-top: 10rem;
-  border: 1px solid red;
-  /* height: 100vh; */
+  /* border: 1px solid red; */
+  width: 60vw;
+  margin: 10rem auto;
+
+  img {
+    width: 350px;
+  }
 }

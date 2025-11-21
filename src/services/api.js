@@ -24,3 +24,4 @@ export const fetchMovieById = async (apiKey, movieId) => {
     console.log(error)
   }
 };
+
