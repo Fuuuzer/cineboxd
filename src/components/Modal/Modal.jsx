@@ -1,8 +1,12 @@
 import React from 'react'
 import './Modal.css'
-import { FormSignUp } from '../FormSignUp/FormSignUp';
+import { FormSignUp } from '../SignupForm/SignupForm';
 
-const Modal = ({ ativo, onClose }) => {
+const Modal = ({ ativo, onClose, onSuccess }) => {
+
+  function onSuccess() {
+    onClose()
+  }
 
   React.useEffect(() => {
     const handleEsc = (e) => {
@@ -20,7 +24,7 @@ const Modal = ({ ativo, onClose }) => {
           <h2>Entre no cineboxd</h2>
           <button aria-label='Fechar' onClick={onClose}>X</button>
         </div>
-        <FormSignUp />
+        <FormSignUp onSuccess={onSuccess} />
       </div>}
     </>
   )

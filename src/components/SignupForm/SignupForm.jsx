@@ -2,7 +2,7 @@ import React from 'react'
 import { validateForm } from '../../utils/validations'
 import Input from '../Input/Input';
 
-export const FormSignUp = () => {
+export const FormSignUp = ({ onSuccess }) => {
   const [form, setForm] = React.useState({
     email: '',
     user: '',
@@ -12,7 +12,6 @@ export const FormSignUp = () => {
   return (
     <form action="">
       <div>
-        <p>{form.email}</p>
         <Input label='Email' id='email' type='email' value={form.email} setValue={setForm} />
       </div>
 
@@ -24,7 +23,13 @@ export const FormSignUp = () => {
         <Input label='Senha' id='password' type='password' value={form.password} setValue={setForm} />
       </div>
 
-      <button id='btn-form' onClick={(e) => { e.preventDefault(); validateForm() }}>Inscrever-se</button>
+      <button id='btn-form' onClick={(e) => {
+        e.preventDefault();
+        if (validateForm(form.user, form.email, form.password)) {
+          console.log('Cadastro validado com sucesso!')
+          onSuccess()
+        }
+      }}>Inscrever-se</button>
     </form>
   )
 }
