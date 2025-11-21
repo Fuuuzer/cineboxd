@@ -5,6 +5,6 @@ footer {
   text-align: center;
   background: #1d1d1d;
   padding: 10px;
-  /* position: absolute; */
-  /* bottom: 0; */
+  position: absolute;
+  bottom: 0;
 }
