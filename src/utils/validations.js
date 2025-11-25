@@ -3,15 +3,15 @@ const regexValidatePassword = /^(?=.*[A-Z])(?=.*[!#@$%&])(?=.*[0-9])(?=.*[a-z]).
 
 export function validateForm({user, email, password}) {
   if (!user || !email || !password) {
-    return console.error('É necessário preencher todos os campos');
+    return 'É necessário preencher todos os campos';
   }
 
   if(!regexValidateEmail.test(email)) {
-    return console.error('É nce');
+    return 'Email inválido';
   }
 
   if(!regexValidatePassword.test(password)){
-    return console.error(password)
+    return 'Senha inválida: precisa ter letra maiúscula, minúscula, número, símbolo e 6–15 caracteres.';
   }
 
   return true
