@@ -16,3 +16,22 @@ export function validateForm({user, email, password}) {
 
   return true
 };
+
+export function validateField(field, value) {
+  switch (field) {
+    case 'email' :
+      if(value === '') return 'É necessário preencher um email';
+      if(!regexValidateEmail.test(value)) return 'Email inválido';
+      return '';
+
+    case 'user' :
+      if(value === '') return 'É necessário preencher um usuário';
+      return '';
+
+    case 'password' :
+      if(value === '') return 'É necessário preencher uma senha';
+      if(!regexValidatePassword.test(value)) return 'A senha não bate os requisitos minimos';
+      return '';
+    default: return ''
+  }
+};
