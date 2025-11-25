@@ -21,7 +21,7 @@ const Movie = () => {
     const getCasting = async () => {
       const castingData = await fetchCasting(apiKey, id);
       console.log(castingData)
-      // setMovie(movieData)
+      setMovieCasting(castingData)
     }
 
     getMovie();
@@ -36,6 +36,9 @@ const Movie = () => {
         <h2>{movie.title}</h2>
         <p><strong>Data de Lançamento: </strong>{movie.release_date}</p>
         <p className='movie-sinopse'>{movie.overview}</p>
+        {movieCasting.map((casting) => {
+          return <p>{casting.name}</p>
+        })}
       </div>
     </div>
   )

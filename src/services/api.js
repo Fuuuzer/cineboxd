@@ -29,7 +29,7 @@ export const fetchCasting = async (apiKey, movieId) => {
   try {
     const res = await api.get(`${movieId}/credits?api_key=${apiKey}&language=pt-BR`);
     const movieData = res.data;
-    return movieData
+    return movieData.cast.slice(0, 4) // Limita em 3 o numero de atores que retorna
   } catch (error) {
     console.log(error)
   }
