@@ -25,3 +25,13 @@ export const fetchMovieById = async (apiKey, movieId) => {
   }
 };
 
+export const fetchCasting = async (apiKey, movieId) => {
+  try {
+    const res = await api.get(`${movieId}/credits?api_key=${apiKey}&language=pt-BR`);
+    const movieData = res.data;
+    return movieData
+  } catch (error) {
+    console.log(error)
+  }
+};
+
