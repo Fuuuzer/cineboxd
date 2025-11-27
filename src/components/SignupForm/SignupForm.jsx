@@ -1,6 +1,6 @@
 import React from 'react'
 import './SignupForm.css'
-import { validateField } from '../../utils/validations'
+import { validateField, validateForm } from '../../utils/validations'
 import Input from '../Input/Input';
 
 export const FormSignUp = ({ onSuccess }) => {
@@ -18,36 +18,33 @@ export const FormSignUp = ({ onSuccess }) => {
 
   function handleChange(field, value) {
     setForm(prev => ({ ...prev, [field]: value }));
-
   }
 
   return (
     <form action="">
       <div>
-        <Input onChange={(e) => handleChange('email', e.target.value)} error={errors.email} label='Email' id='email' type='email' value={form.email} />
+        <Input onChange={(e) => handleChange('email', e.target.value)} label='Email' id='email' type='email' value={form.email} />
         {errors.email && <p className="error">{errors.email}</p>}
       </div>
 
       <div>
-        <Input onChange={(e) => handleChange('user', e.target.value)} error={errors.user} label='Usuário' id='user' type='text' value={form.user} />
+        <Input onChange={(e) => handleChange('user', e.target.value)} label='Usuário' id='user' type='text' value={form.user} />
         {errors.user && <p className="error">{errors.user}</p>}
       </div>
 
       <div>
-        <Input onChange={(e) => handleChange('password', e.target.value)} error={errors.password} label='Senha' id='password' type='password' value={form.password} />
+        <Input onChange={(e) => handleChange('password', e.target.value)} label='Senha' id='password' type='password' value={form.password} />
         {errors.password && <p className="error">{errors.password}</p>}
       </div>
 
       <button id='btn-form' onClick={(e) => {
         e.preventDefault();
         setSubmit(true);
-        const errorMessage = validateField(field, value);
-        if (submit) setErrors(prev => ({ ...prev, [field]: errorMessage }));
-        console.log('oi')
-        const validationResult = validateField(form);
+        const validationResult = validateForm(form);
         if (validationResult === true) {
-          onSuccess()
+          console.log('enviado')
         }
+        setErrors(validationResult)
       }}>Inscrever-se</button>
     </form>
   )

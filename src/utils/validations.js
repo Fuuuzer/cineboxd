@@ -1,6 +1,14 @@
 const regexValidateEmail = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 const regexValidatePassword = /^(?=.*[A-Z])(?=.*[!#@$%&])(?=.*[0-9])(?=.*[a-z]).{6,15}$/;
 
+export function validateForm(form) {
+  const newErrors = {}
+  Object.keys(form).forEach((field) => {
+    newErrors[field] = validateField(field, form[field]);
+  })
+  return newErrors
+}
+
 export function validateField(field, value) {
   switch (field) {
     case 'email' :
