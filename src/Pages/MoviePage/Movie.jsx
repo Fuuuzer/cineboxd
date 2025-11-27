@@ -65,9 +65,11 @@ const Movie = () => {
         <h2>Avaliações</h2>
         {reviews.map((review) => (
           <div id={review.user} className='review'>
-            <p>{review.user}</p>
-            <p>{review.rating}</p>
-            <p>{review.comment}</p>
+            <div className='review-user-container'>
+              <p className='review-user'>{review.user}</p>
+              <p className='review-rating'>{review.rating} estrelas</p>
+            </div>
+            <p className='review-comment'>{review.comment}</p>
           </div>
         ))}
       </div>
