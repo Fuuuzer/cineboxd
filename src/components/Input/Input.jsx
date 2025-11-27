@@ -1,6 +1,7 @@
 import React from 'react'
 
 const Input = ({ id, label, type, onChange, value, ...props }) => {
+
   return (
     <>
       <label htmlFor={id}>{label}</label>

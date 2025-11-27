@@ -3,7 +3,10 @@ import { fetchMovieById, fetchCasting } from '../../services/api'
 import { useParams } from 'react-router';
 import './Movie.css'
 
-
+const reviews = [
+  { user: 'João', rating: 5, comment: 'Amei!' },
+  { user: 'Maria', rating: 4, comment: 'Muito bom' },
+];
 
 const Movie = () => {
   const [movie, setMovie] = React.useState([]);
@@ -18,14 +21,12 @@ const Movie = () => {
 
     const getMovie = async () => {
       const movieData = await fetchMovieById(apiKey, id);
-      console.log(movieData)
       setMovie(movieData)
       setIsLoading(false);
     }
 
     const getCasting = async () => {
       const castingData = await fetchCasting(apiKey, id);
-      console.log(castingData)
       setMovieCasting(castingData)
       setIsLoading(false);
     }
@@ -38,22 +39,38 @@ const Movie = () => {
   return (
     <>
       {isLoading ? (<p className='loading'>Loading...</p >) : (
-        <div className='movie'> <img src={`https://image.tmdb.org/t/p/w500/${movie.poster_path || movie.backdrop_path}`} alt={movie.title} />
-          <div className='movie-infos'>
-            <h2>{movie.title}</h2>
-            <p><strong>Duração </strong>{movie.runtime} min</p>
-            <p><strong>Data de Lançamento: </strong>{movie.release_date}</p>
-            <p className='movie-sinopse'>{movie.overview}</p>
-            <div className='casting'>
-              <h3>Casting</h3>
-              <div>
-                {movieCasting.map((casting) => {
-                  return <p key={casting.name}>{casting.name}</p>
-                })}
+        <div className='movie'>
+          <div className='movie-container'>
+            <img src={`https://image.tmdb.org/t/p/w500/${movie.poster_path || movie.backdrop_path}`} alt={movie.title} />
+            <div className='movie-infos'>
+
+              <h2>{movie.title}</h2>
+              <p><strong>Duração </strong>{movie.runtime} min</p>
+              <p><strong>Data de Lançamento: </strong>{movie.release_date}</p>
+              <p className='movie-sinopse'>{movie.overview}</p>
+              <div className='casting'>
+                <h3>Casting</h3>
+                <div>
+                  {movieCasting.map((casting) => {
+                    return <p key={casting.name}>{casting.name}</p>
+                  })}
+                </div>
               </div>
             </div>
           </div>
-        </div>)}
+        </div>
+      )}
+
+      <div className='reviews-container'>
+        <h2>Avaliações</h2>
+        {reviews.map((review) => (
+          <div id={review.user} className='review'>
+            <p>{review.user}</p>
+            <p>{review.rating}</p>
+            <p>{review.comment}</p>
+          </div>
+        ))}
+      </div>
     </>
   )
 }

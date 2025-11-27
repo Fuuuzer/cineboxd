@@ -3,7 +3,12 @@
   width: 60vw;
   margin: 10rem auto;
   display: flex;
-  gap: 20px;
+  flex-direction: column;
+
+  .movie-container {
+    display: flex;
+    gap: 20px;
+  }
 
   .movie-infos {
     display: flex;
@@ -56,4 +61,11 @@
   margin-top: 10rem;
   border: 1px solid red;
   font-size: 2rem;
+}
+
+.reviews-container {
+  h2 {
+    margin-top: 20px;
+    font-size: 2rem;
+  }
 }
