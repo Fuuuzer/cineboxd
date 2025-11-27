@@ -69,7 +69,7 @@ main {
       }
     }
 
-    p {
+    .hero-desc {
       font-size: 1.15rem;
       font-weight: 500;
       color: #969696;

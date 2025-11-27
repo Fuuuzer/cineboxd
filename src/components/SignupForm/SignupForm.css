@@ -1,0 +1,6 @@
+.error {
+  font-size: 0.75rem;
+  color: rgb(255, 255, 255);
+  font-weight: 500;
+  max-width: 30ch;
+}

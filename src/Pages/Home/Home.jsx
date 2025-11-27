@@ -26,7 +26,7 @@ const Home = () => {
 
           <button className='btn' onClick={toggleModal}>Se cadastre — É de graça!</button>
 
-          <p>A rede social dos amantes do cinema.</p>
+          <p className='hero-desc'>A rede social dos amantes do cinema.</p>
         </div>
       </main >
       <section className='container-latest-movies'>

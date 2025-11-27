@@ -11,10 +11,11 @@ export function validateField(field, value) {
     case 'user' :
       if(value === '') return 'É necessário preencher um usuário';
       return '';
+      //
 
     case 'password' :
       if(value === '') return 'É necessário preencher uma senha';
-      if(!regexValidatePassword.test(value)) return 'A senha não bate os requisitos minimos';
+      if(!regexValidatePassword.test(value)) return 'A senha precisa conter no mínimo 6 digitos, uma letra maiúscula, minuscula e um caractere especial';
       return '';
     default: return ''
   }

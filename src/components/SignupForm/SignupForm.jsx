@@ -1,8 +1,10 @@
 import React from 'react'
-import { validateField, validateForm } from '../../utils/validations'
+import './SignupForm.css'
+import { validateField } from '../../utils/validations'
 import Input from '../Input/Input';
 
 export const FormSignUp = ({ onSuccess }) => {
+  const [submit, setSubmit] = React.useState(false)
   const [form, setForm] = React.useState({
     email: '',
     user: '',
@@ -17,8 +19,6 @@ export const FormSignUp = ({ onSuccess }) => {
   function handleChange(field, value) {
     setForm(prev => ({ ...prev, [field]: value }));
 
-    const errorMessage = validateField(field, value);
-    setErrors(prev => ({ ...prev, [field]: errorMessage }));
   }
 
   return (
@@ -40,6 +40,10 @@ export const FormSignUp = ({ onSuccess }) => {
 
       <button id='btn-form' onClick={(e) => {
         e.preventDefault();
+        setSubmit(true);
+        const errorMessage = validateField(field, value);
+        if (submit) setErrors(prev => ({ ...prev, [field]: errorMessage }));
+        console.log('oi')
         const validationResult = validateField(form);
         if (validationResult === true) {
           onSuccess()
