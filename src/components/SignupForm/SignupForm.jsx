@@ -10,11 +10,7 @@ export const FormSignUp = ({ onSuccess }) => {
     user: '',
     password: ''
   });
-  const [errors, setErrors] = React.useState({
-    email: '',
-    user: '',
-    password: ''
-  })
+  const [errors, setErrors] = React.useState({})
 
   function handleChange(field, value) {
     setForm(prev => ({ ...prev, [field]: value }));
@@ -41,8 +37,10 @@ export const FormSignUp = ({ onSuccess }) => {
         e.preventDefault();
         setSubmit(true);
         const validationResult = validateForm(form);
-        if (validationResult === true) {
-          console.log('enviado')
+        const hasErrors = Object.values(validationResult).some(msg => msg !== "")
+        if (!hasErrors) {
+          onSuccess()
+          console.log('Fechando modal...')
         }
         setErrors(validationResult)
       }}>Inscrever-se</button>
