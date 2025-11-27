@@ -3,16 +3,11 @@ import './Home.css'
 import LatestMovies from '../../components/LastMovies/LatestMovies'
 import Footer from '../../components/Footer/Footer'
 import FeaturesSection from '../../components/FeaturesSection/FeaturesSection'
-import { validateForm } from '../../utils/validations'
 import Modal from '../../components/Modal/Modal'
 
 const Home = () => {
   const [ativo, setAtivo] = React.useState(false);
-  const [inputForm, setInputForm] = React.useState({
-    user: '',
-    email: '',
-    password: ''
-  })
+
   const toggleModal = () => setAtivo(prev => !prev);
 
 
@@ -38,7 +33,7 @@ const Home = () => {
         <LatestMovies />
       </section>
       <FeaturesSection />
-      <Footer />
+
     </>
   )
 }

@@ -1,19 +1,21 @@
 const regexValidateEmail = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+const regexValidatePassword = /^(?=.*[A-Z])(?=.*[!#@$%&])(?=.*[0-9])(?=.*[a-z]).{6,15}$/;
 
-export function validateForm(user, email, password) {
-  if (!user || !email || !password) {
-    return console.log('É necessário preencher todos os campos');
-  }
+export function validateField(field, value) {
+  switch (field) {
+    case 'email' :
+      if(value === '') return 'É necessário preencher um email';
+      if(!regexValidateEmail.test(value)) return 'Email inválido';
+      return '';
 
-  if(!regexValidateEmail.text(email.value)) {
-    return console.log('Preencha um email válido')
-  }
+    case 'user' :
+      if(value === '') return 'É necessário preencher um usuário';
+      return '';
 
-<<<<<<< HEAD
-export function validateForm(user, email, password) {
-  if (!user || !email || !password) {
-    return console.log('É necessário preencher todos os campos');
+    case 'password' :
+      if(value === '') return 'É necessário preencher uma senha';
+      if(!regexValidatePassword.test(value)) return 'A senha não bate os requisitos minimos';
+      return '';
+    default: return ''
   }
-=======
->>>>>>> ecb8c30a5d8bc11541b162cef38ef7bbef6f9565
 };

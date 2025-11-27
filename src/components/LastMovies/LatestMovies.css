@@ -10,68 +10,69 @@ section {
     display: flex;
     gap: 15px;
   }
+}
 
-  .movie-card {
+.movie-card {
+  border-radius: 4px;
+  height: 100%;
+  position: relative;
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+
+  img {
+    max-width: 100%;
+    height: 100%;
     border-radius: 4px;
-    position: relative;
+    outline: 3px solid transparent;
+    display: block;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+
+    &:hover {
+      outline: 3px solid rgb(31, 146, 31);
+      outline-offset: -3px;
+      animation: ease-in-out borda-legal;
+    }
+  }
+
+  .latest-movies-statistics {
     display: flex;
-    flex: 1;
+    opacity: 0;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
+    padding: 15px;
+    background: #000000d0;
+    position: absolute;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    pointer-events: none;
+    appearance: none;
+    border-radius: 4px;
 
-    img {
-      max-width: 100%;
-      height: 100%;
-      border-radius: 4px;
-      outline: 3px solid transparent;
-      display: block;
-      cursor: pointer;
-      transition: all 0.2s ease-in-out;
-
-      &:hover {
-        outline: 3px solid rgb(31, 146, 31);
-        outline-offset: -3px;
-        animation: ease-in-out borda-legal;
-      }
-    }
-
-    .latest-movies-statistics {
+    p {
+      font-size: 1.5rem;
+      gap: 10px;
+      color: #d3d3d3;
       display: flex;
-      opacity: 0;
-      flex-direction: column;
       align-items: center;
+      align-self: baseline;
       justify-content: space-between;
-      padding: 15px;
-      background: #000000d0;
-      position: absolute;
-      cursor: pointer;
-      transition: all 0.2s ease-in-out;
-      pointer-events: none;
-      appearance: none;
-      border-radius: 4px;
 
-      p {
-        font-size: 1.5rem;
-        gap: 10px;
-        color: #d3d3d3;
-        display: flex;
-        align-items: center;
-        align-self: baseline;
-        justify-content: space-between;
-
-        svg {
-          pointer-events: none;
-          display: block;
-          width: 40px;
-          height: 40px;
-        }
+      svg {
+        pointer-events: none;
+        display: block;
+        width: 40px;
+        height: 40px;
       }
     }
+  }
 
-    &:hover .latest-movies-statistics {
-      opacity: 1;
-      transition: all 0.2s ease-in-out;
-    }
+  &:hover .latest-movies-statistics {
+    opacity: 1;
+    transition: all 0.2s ease-in-out;
   }
 }
 

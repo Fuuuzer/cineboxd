@@ -1,0 +1,59 @@
+.movie {
+  /* border: 1px solid red; */
+  width: 60vw;
+  margin: 10rem auto;
+  display: flex;
+  gap: 20px;
+
+  .movie-infos {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .movie-sinopse {
+    font-size: 1rem;
+    max-width: 50ch;
+  }
+
+  h2 {
+    font-size: 2.5rem;
+  }
+
+  img {
+    width: 350px;
+    border-radius: 4px;
+  }
+}
+
+.casting {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.casting h3 {
+  font-weight: 600;
+}
+
+.casting div {
+  display: flex;
+  gap: 10px;
+}
+
+.casting div p {
+  padding: 10px;
+  border: 1px solid rgb(63, 63, 63);
+  border-radius: 4px;
+  cursor: pointer;
+}
+.casting div p:hover {
+  background: #464646;
+}
+
+.loading {
+  align-self: center;
+  margin-top: 10rem;
+  border: 1px solid red;
+  font-size: 2rem;
+}
