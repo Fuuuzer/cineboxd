@@ -18,7 +18,7 @@ const Home = () => {
 
   return (
     <>
-      <main>
+      <main className={ativo ? 'opacity' : ''}>
         <div className='hero'>
           <span className='bg-movie-name'> <a href="">Se Beber Não Case 3 (2013)</a></span>
           <h1>

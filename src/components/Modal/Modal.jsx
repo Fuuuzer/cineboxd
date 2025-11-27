@@ -1,7 +1,9 @@
 import React from 'react'
 import './Modal.css'
+import { FormSignUp } from '../SignupForm/SignupForm';
 
 const Modal = ({ ativo, onClose }) => {
+
   React.useEffect(() => {
     const handleEsc = (e) => {
       if (e.key === "Escape") onClose();
@@ -39,8 +41,9 @@ const Modal = ({ ativo, onClose }) => {
         </form>
       </div>}
 
+      <FormSignUp />
     </>
+
   )
 }
-
 export default Modal

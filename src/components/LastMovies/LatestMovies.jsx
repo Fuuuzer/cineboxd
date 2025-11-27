@@ -15,12 +15,16 @@ const LatestMovies = () => {
     getMovies()
   }, [apiKey])
 
+  function handleClick() {
+    console.log('oi')
+  }
+
   return (
     <div className='latest-movies'>
 
       {movies.map((movie) => (
 
-        <div key={movie.id} className='movie-card'>
+        <div onClick={handleClick} key={movie.id} className='movie-card'>
           <img src={`https://image.tmdb.org/t/p/w500/${movie.poster_path || movie.backdrop_path}`} alt={movie.title} />
           <div className='latest-movies-statistics'>
             <p><span><svg width="24px" height="24px" viewBox="0 0 24 24" strokeWidth="1.5" fill="none" xmlns="http://www.w3.org/2000/svg" color="#d3d3d3"><path d="M3 13C6.6 5 17.4 5 21 13" stroke="#d3d3d3" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"></path><path d="M12 17C10.3431 17 9 15.6569 9 14C9 12.3431 10.3431 11 12 11C13.6569 11 15 12.3431 15 14C15 15.6569 13.6569 17 12 17Z" stroke="#d3d3d3" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"></path></svg></span>{movie.popularity.toFixed()}k</p>
