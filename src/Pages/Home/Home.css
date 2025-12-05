@@ -77,11 +77,6 @@ main {
   }
 }
 
-.container-latest-movies {
-  width: 60vw;
-  /* border: 1px solid blue; */
-}
-
 @keyframes animaLeft {
   from {
     opacity: 0;
