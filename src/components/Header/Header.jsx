@@ -1,14 +1,23 @@
 import React from 'react'
-import './Header.css'
+import './Header.css';
+import { useNavigate } from 'react-router';
 import { fetchMovieByName } from '../../services/api';
 const apiKey = import.meta.env.VITE_API_KEY;
 
 const Header = () => {
   const [movieName, setMovieName] = React.useState('');
+  const navigate = useNavigate();
 
-  function handleKey(e) {
+  const handleKey = async (e) => {
     if (e.key === 'Enter') {
-      fetchMovieByName(apiKey, movieName)
+      try {
+        const searchData = await fetchMovieByName(apiKey, movieName);
+        navigate('/resultados',
+          { state: { results: searchData, searchTerm: movieName } });
+      } catch (error) {
+        console.error("Erro ao buscar filme:", error);
+
+      }
     }
   }
 
@@ -31,6 +40,7 @@ const Header = () => {
       </nav>
     </header>
   )
+
 }
 
 export default Header
