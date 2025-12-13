@@ -30,7 +30,7 @@ section {
     display: block;
     cursor: pointer;
     transition: all 0.2s ease-in-out;
-    border: 1px solid red;
+    /* border: 1px solid red; */
 
     &:hover {
       outline: 3px solid rgb(31, 146, 31);
