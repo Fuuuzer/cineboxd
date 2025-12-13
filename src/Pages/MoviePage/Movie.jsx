@@ -3,15 +3,15 @@ import { fetchMovieById, fetchCasting } from '../../services/api'
 import { useParams } from 'react-router';
 import './Movie.css'
 
-const reviews = [
-  { user: 'João', rating: 5, comment: 'Amei!' },
-  { user: 'Maria', rating: 4, comment: 'Muito bom' },
-];
 
 const Movie = () => {
   const [movie, setMovie] = React.useState([]);
   const [movieCasting, setMovieCasting] = React.useState([]);
   const [isLoading, setIsLoading] = React.useState(true);
+  const [reviewData, setReviewData] = React.useState({
+    review: '',
+    nota: 0,
+  });
   const apiKey = import.meta.env.VITE_API_KEY;
 
   const { id } = useParams();
@@ -37,6 +37,9 @@ const Movie = () => {
 
   function handleSubmit(e) {
     e.preventDefault();
+  }
+  function handleChange(field, value) {
+    setReviewData(prev => ({ ...prev, [field]: value }))
   }
 
 
@@ -77,14 +80,11 @@ const Movie = () => {
           </div>
         ))}
       </div> */}
+
       <div className='reviews-container'>
         <h2>Avaliações</h2>
         <form action="" className='review'>
-          <div className='review-user-container'>
-            <textarea className='text-area' name="avaliacao" id="avaliacao"></textarea>
-            <p className='review-user'>João</p>
-            <p className='review-rating'>5 estrelas</p>
-          </div>
+          <textarea onChange={handleChange} className='text-area' name="avaliacao" placeholder='Escreva sua review' id="avaliacao"></textarea>
           <button type='submit' onClick={handleSubmit}>enviar</button>
         </form>
         <div className='review'>

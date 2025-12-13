@@ -100,4 +100,7 @@
 
 .text-area {
   background: rgb(63, 63, 63);
+  color: #fff;
+  font-size: 1rem;
+  padding: 5px;
 }
