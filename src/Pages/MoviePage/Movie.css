@@ -59,7 +59,7 @@
 .loading {
   align-self: center;
   margin-top: 10rem;
-  border: 1px solid red;
+  /* border: 1px solid red; */
   font-size: 2rem;
 }
 
@@ -96,4 +96,8 @@
 
 .review-user {
   font-size: 1.25rem;
+}
+
+.text-area {
+  background: rgb(63, 63, 63);
 }

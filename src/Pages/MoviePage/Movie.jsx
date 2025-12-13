@@ -35,10 +35,14 @@ const Movie = () => {
     getCasting()
   }, [id]);
 
+  function handleSubmit(e) {
+    e.preventDefault();
+  }
+
 
   return (
     <>
-      {isLoading ? (<p className='loading'>Loading...</p >) : (
+      {isLoading ? (<p className='loading'>Carregando os dados...</p >) : (
         <div className='movie'>
           <div className='movie-container'>
             <img src={`https://image.tmdb.org/t/p/w500/${movie.poster_path || movie.backdrop_path}`} alt={movie.title} />
@@ -61,7 +65,7 @@ const Movie = () => {
         </div>
       )}
 
-      <div className='reviews-container'>
+      {/* <div className='reviews-container'>
         <h2>Avaliações</h2>
         {reviews.map((review) => (
           <div id={review.user} className='review'>
@@ -72,7 +76,25 @@ const Movie = () => {
             <p className='review-comment'>{review.comment}</p>
           </div>
         ))}
-      </div>
+      </div> */}
+      <div className='reviews-container'>
+        <h2>Avaliações</h2>
+        <form action="" className='review'>
+          <div className='review-user-container'>
+            <textarea className='text-area' name="avaliacao" id="avaliacao"></textarea>
+            <p className='review-user'>João</p>
+            <p className='review-rating'>5 estrelas</p>
+          </div>
+          <button type='submit' onClick={handleSubmit}>enviar</button>
+        </form>
+        <div className='review'>
+          <div className='review-user-container'>
+            <p className='review-user'>João</p>
+            <p className='review-rating'>5 estrelas</p>
+          </div>
+          <p className='review-comment'>Hahahaha ri demais com iesse filme</p>
+        </div>
+      </div >
     </>
   )
 }
