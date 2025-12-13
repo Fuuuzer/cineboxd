@@ -4,7 +4,6 @@ const api = axios.create({
   baseURL: 'https://api.themoviedb.org/3/movie/',
 });
 
-
  export const fetchPopularMovies = async (apiKey) => {
   try {
     const res = await api.get(`popular?api_key=${apiKey}&language=pt-BR&page=1`);
@@ -35,3 +34,12 @@ export const fetchCasting = async (apiKey, movieId) => {
   }
 };
 
+export const fetchMovieByName = async (apiKey, movieName) => {
+   try {
+    const res = await api.get(`https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=${movieName}`);
+    const movieData = res.data;
+   return console.log(movieData)
+  } catch (error) {
+    console.log(error)
+  }
+}
