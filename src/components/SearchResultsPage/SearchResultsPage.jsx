@@ -1,5 +1,6 @@
 import React from 'react'
 import { useLocation } from 'react-router'
+import './SearchResultsPage.css'
 
 
 const SearchResultsPage = () => {
@@ -8,9 +9,15 @@ const SearchResultsPage = () => {
 
   return (
     <div className="search-results-container">
-      {console.log(results)}
+      {results.map((result) => (
+        <div key={result.id} className='movie-card-results'>
+          <img src={`https://image.tmdb.org/t/p/w500/${result.poster_path || result.backdrop_path}`} alt={result.title} />
+          <h3>{result.title} {result.release_date}</h3>
+        </div>
+      ))
+      }
 
-    </div>
+    </div >
   )
 }
 

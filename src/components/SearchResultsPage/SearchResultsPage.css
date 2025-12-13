@@ -1,0 +1,16 @@
+.search-results-container {
+  width: 60vw;
+  margin: 10rem auto 2rem auto;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+
+  .movie-card-results {
+    display: flex;
+    gap: 10px;
+    img {
+      max-width: 20%;
+    }
+  }
+}
