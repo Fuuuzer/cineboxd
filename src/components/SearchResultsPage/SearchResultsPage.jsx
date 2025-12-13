@@ -12,7 +12,7 @@ const SearchResultsPage = () => {
       {results.map((result) => (
         <div key={result.id} className='movie-card-results'>
           <img src={`https://image.tmdb.org/t/p/w500/${result.poster_path || result.backdrop_path}`} alt={result.title} />
-          <h3>{result.title} {result.release_date}</h3>
+          <h3>{result.title} <strong>{result.release_date}</strong></h3>
         </div>
       ))
       }

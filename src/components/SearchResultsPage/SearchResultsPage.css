@@ -9,6 +9,9 @@
   .movie-card-results {
     display: flex;
     gap: 10px;
+    strong {
+      font-weight: 300;
+    }
     img {
       max-width: 20%;
     }
