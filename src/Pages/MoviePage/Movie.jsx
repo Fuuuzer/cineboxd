@@ -42,6 +42,10 @@ const Movie = () => {
     setReviewData(prev => ({ ...prev, [field]: value }))
   }
 
+  function handleClick() {
+    
+  }
+
 
   return (
     <>
@@ -59,7 +63,7 @@ const Movie = () => {
                 <h3>Casting</h3>
                 <div>
                   {movieCasting.map((casting) => {
-                    return <p key={casting.name}>{casting.name}</p>
+                    return <p key={casting.name} onClick={handleClick}>{casting.name}</p>
                   })}
                 </div>
               </div>

@@ -13,7 +13,23 @@ const Home = () => {
 
   return (
     <>
-      <main className={ativo ? 'opacity' : ''}>
+      <main className={ativo ? 'opacity' : ''} style={{
+        backgroundImage: `linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.2) 0%,
+      rgba(0, 0, 0, 0.062) 40%,
+      rgba(15, 15, 15, 1) 100%
+    ), 
+    linear-gradient(
+      90deg,
+      rgba(15, 15, 15, 1) 0%,
+      rgba(1, 1, 1, 0) 50%,
+      rgba(15, 15, 15, 1) 100%
+    ), url("/hangoveer.jpg")`,
+        backgroundPosition: 'top',
+        backgroundSize: 'cover',
+        backgroundRepeat: 'no-repeat',
+      }}>
         <div className='hero'>
           <span className='bg-movie-name'> <a href="">Se Beber Não Case 3 (2013)</a></span>
           <h1>
