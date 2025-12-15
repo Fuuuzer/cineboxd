@@ -1,7 +1,8 @@
 .movie {
   /* border: 1px solid red; */
-  width: 60vw;
-  margin: 10rem auto 2rem auto;
+  min-height: 80vh;
+  margin: 0 auto;
+  padding-top: 10rem;
   display: flex;
   flex-direction: column;
 
