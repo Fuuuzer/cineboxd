@@ -4,7 +4,7 @@ import Home from "./Pages/Home/Home";
 import Header from "./components/Header/Header";
 import Movie from "./Pages/MoviePage/Movie";
 import Footer from "./components/Footer/Footer";
-import SearchResultsPage from "./components/SearchResultsPage/SearchResultsPage";
+import SearchResultsPage from "./Pages/SearchResultsPage/SearchResultsPage";
 
 
 function App() {

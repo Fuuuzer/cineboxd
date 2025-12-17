@@ -1,6 +1,7 @@
 .movie {
   /* border: 1px solid red; */
   min-height: 80vh;
+  width: 60vw;
   margin: 0 auto;
   padding-top: 10rem;
   display: flex;
@@ -9,6 +10,8 @@
   .movie-container {
     display: flex;
     gap: 20px;
+    padding: 10px;
+    /* background: rgb(0, 0, 0); */
   }
 
   .movie-infos {
@@ -28,7 +31,7 @@
 
   img {
     width: 350px;
-    border-radius: 4px;
+    border-radius: 4px 0px 0px 4px;
   }
 }
 

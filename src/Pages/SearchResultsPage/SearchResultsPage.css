@@ -1,0 +1,29 @@
+.search-results-container {
+  width: 60vw;
+  margin: 10rem auto 2rem auto;
+  padding: 10px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 25px;
+
+  .movie-card-results {
+    /* border: 1px solid red; */
+    padding: 10px;
+    display: flex;
+    /* justify-content: center; */
+    gap: 10px;
+
+    strong {
+      font-weight: 300;
+    }
+    img {
+      max-width: 100%;
+      cursor: pointer;
+      transition: 0.1s;
+
+      &:hover {
+        scale: 1.05;
+      }
+    }
+  }
+}

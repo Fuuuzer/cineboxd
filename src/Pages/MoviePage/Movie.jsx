@@ -2,6 +2,7 @@ import React from 'react';
 import { fetchMovieById, fetchCasting } from '../../services/api'
 import { useParams } from 'react-router';
 import './Movie.css'
+import { Link } from 'react-router'
 
 
 const Movie = () => {
@@ -51,25 +52,27 @@ const Movie = () => {
     <>
       {isLoading ? (<p className='loading'>Carregando os dados...</p >) : (
         <div className='movie'
-          style={{
-            backgroundImage: `linear-gradient(
-          180deg,
-          rgba(0, 0, 0, 0.2) 0%,
-          rgba(0, 0, 0, 0.062) 40%,
-          rgba(15, 15, 15, 1) 100%
-        ), 
-        linear-gradient(
-          90deg,
-          rgba(15, 15, 15, 1) 0%,
-          rgba(1, 1, 1, 0) 50%,
-          rgba(15, 15, 15, 1) 100%
-        ), url("https://image.tmdb.org/t/p/original/${movie.poster_path}")`,
-            backgroundPosition: 'top',
-            backgroundSize: 'cover',
-            backgroundRepeat: 'no-repeat',
-          }}
+
         >
-          <div className='movie-container'>
+          <div className='movie-container'
+          //   style={{
+          //     backgroundImage: `linear-gradient(
+          //   180deg,
+          //   rgba(0, 0, 0, 0.2) 0%,
+          //   rgba(0, 0, 0, 0.062) 40%,
+          //   rgba(15, 15, 15, 1) 100%
+          // ), 
+          // linear-gradient(
+          //   90deg,
+          //   rgba(15, 15, 15, 1) 0%,
+          //   rgba(1, 1, 1, 0) 50%,
+          //   rgba(15, 15, 15, 1) 100%
+          // ), url("https://image.tmdb.org/t/p/original/${movie.poster_path}")`,
+          //     backgroundPosition: 'top',
+          //     backgroundSize: 'cover',
+          //     backgroundRepeat: 'no-repeat',
+          //   }}
+          >
             <img src={`https://image.tmdb.org/t/p/original/${movie.poster_path || movie.backdrop_path}`} alt={movie.title} />
             <div className='movie-infos'>
 
