@@ -11,10 +11,11 @@ import Movies from "./Pages/Movies/Movies";
 
 function App() {
   const apiKey = import.meta.env.VITE_API_KEY;
+
   return (
     <BrowserRouter>
       <div className="layout">
-        <Header />
+        <Header apikey={apiKey} />
         <Routes>
           <Route path="/" element={<Home apikey={apiKey} />} />
           <Route path="/movies/:id" element={<Movie />} />
