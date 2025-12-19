@@ -10,7 +10,7 @@ const LatestMovies = () => {
   React.useEffect(() => {
     const getMovies = async () => {
       const moviesData = await fetchPopularMovies(apiKey);
-      setMovies(moviesData)
+      setMovies(moviesData.slice(0, 5));
     };
 
     getMovies()

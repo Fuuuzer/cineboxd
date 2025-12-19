@@ -1,6 +1,6 @@
 import React from 'react'
 import './Header.css';
-import { useNavigate } from 'react-router';
+import { Link, useNavigate } from 'react-router';
 import { fetchMovieByName } from '../../services/api';
 const apiKey = import.meta.env.VITE_API_KEY;
 
@@ -32,7 +32,8 @@ const Header = () => {
         <ul>
           <li>Entrar</li>
           <li>Criar conta</li>
-          <li>Filmes</li>
+          <Link to={`/movies`} ><li>Filmes</li></Link>
+
           <li>Membros</li>
           <li>Sobre</li>
         </ul>

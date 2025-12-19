@@ -5,6 +5,7 @@ import Header from "./components/Header/Header";
 import Movie from "./Pages/MoviePage/Movie";
 import Footer from "./components/Footer/Footer";
 import SearchResultsPage from "./Pages/SearchResultsPage/SearchResultsPage";
+import Movies from "./Pages/Movies/Movies";
 
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/movies/:id" element={<Movie />} />
+          <Route path="/movies" element={<Movies />} />
           <Route path="/resultados" element={<SearchResultsPage />} />
         </Routes>
         <Footer />
