@@ -1,5 +1,5 @@
 import React from 'react'
-import { validateField } from '../../utils/validations'
+// import { validateField } from '../../utils/validations'
 import Input from '../Input/Input';
 
 export const FormSignUp = ({ onSuccess }) => {

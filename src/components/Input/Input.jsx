@@ -1,5 +1,5 @@
-import React from 'react'
-import { validateField } from '../../utils/validations'
+// import React from 'react'
+// import { validateField } from '../../utils/validations'
 
 const Input = ({ id, label, type, onChange, value, ...props }) => {
   return (
