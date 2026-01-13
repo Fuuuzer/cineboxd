@@ -1,6 +1,5 @@
 import React from 'react'
-import './SignupForm.css'
-import { validateField, validateForm } from '../../utils/validations'
+import { validateField } from '../../utils/validations'
 import Input from '../Input/Input';
 
 export const FormSignUp = ({ onSuccess }) => {
