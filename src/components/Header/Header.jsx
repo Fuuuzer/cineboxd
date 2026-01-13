@@ -1,17 +1,16 @@
 import React from 'react'
 import './Header.css';
-import { useNavigate } from 'react-router';
+import { Link, useNavigate } from 'react-router';
 import { fetchMovieByName } from '../../services/api';
-const apiKey = import.meta.env.VITE_API_KEY;
 
-const Header = () => {
+const Header = ({ apikey }) => {
   const [movieName, setMovieName] = React.useState('');
   const navigate = useNavigate();
 
   const handleKey = async (e) => {
     if (e.key === 'Enter') {
       try {
-        const searchData = await fetchMovieByName(apiKey, movieName);
+        const searchData = await fetchMovieByName(apikey, movieName);
         navigate('/resultados',
           { state: { results: searchData, searchTerm: movieName } });
       } catch (error) {
@@ -32,7 +31,8 @@ const Header = () => {
         <ul>
           <li>Entrar</li>
           <li>Criar conta</li>
-          <li>Filmes</li>
+          <Link to={`/movies`} ><li>Filmes</li></Link>
+
           <li>Membros</li>
           <li>Sobre</li>
         </ul>

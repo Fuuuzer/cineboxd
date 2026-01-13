@@ -1,0 +1,29 @@
+img {
+  max-width: 100%;
+  display: block;
+}
+.movies-container {
+  width: 60vw;
+  margin: 10rem auto 2rem auto;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  gap: 25px;
+  flex-wrap: wrap;
+
+  .movies {
+    align-items: center;
+    /* border: 1px solid red; */
+    img {
+      width: 200px;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      cursor: pointer;
+    }
+
+    &:hover {
+      scale: 1.05;
+    }
+  }
+}
