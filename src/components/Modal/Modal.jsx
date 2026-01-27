@@ -25,6 +25,7 @@ const Modal = ({ ativo, onClose, onSuccess }) => {
           <button aria-label='Fechar' onClick={onClose}>X</button>
         </div>
         <FormSignUp onSuccess={onSuccess} />
+        <p className='modal-have-account'>Já possui conta? <a href="" >Entrar</a></p>
       </div>}
     </>
 

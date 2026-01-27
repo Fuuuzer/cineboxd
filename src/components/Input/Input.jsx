@@ -1,7 +1,8 @@
-// import React from 'react'
+import React from 'react'
 // import { validateField } from '../../utils/validations'
 
-const Input = ({ id, label, type, onChange, value, ...props }) => {
+const Input = ({ id, label, type, handleChange, value, ...props }) => {
+
   return (
     <>
       <label htmlFor={id}>{label}</label>
@@ -9,7 +10,7 @@ const Input = ({ id, label, type, onChange, value, ...props }) => {
         id={id}
         type={type}
         value={value}
-        onChange={({ target }) => setValue(prevForm => ({
+        onChange={({ target }) => setForm(prevForm => ({
           ...prevForm,
           [target.id]: target.value
         }))}

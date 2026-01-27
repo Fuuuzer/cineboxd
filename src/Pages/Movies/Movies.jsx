@@ -11,7 +11,6 @@ const Movies = ({ apikey }) => {
       const moviesData = await fetchPopularMovies(apikey);
       setMovies(moviesData);
     }
-
     getMovies()
   }, [apikey]);
 
@@ -19,8 +18,10 @@ const Movies = ({ apikey }) => {
 
     <div className='movies-container'>
       {movies.map((movie) => (
-        <Link to={`./${movie.id}`} className='movies' key={movie.id}>
-          <img src={`https://image.tmdb.org/t/p/original/${movie.poster_path || movie.backdrop_path}`} alt={movie.title} />
+        <Link to={`/movies/${movie.id}`} key={movie.id} >
+          <div className='movies' key={movie.id}>
+            <img src={`https://image.tmdb.org/t/p/original/${movie.poster_path || movie.backdrop_path}`} alt={movie.title} />
+          </div>
         </Link>
       ))}
     </div>

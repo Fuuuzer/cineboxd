@@ -1,6 +1,8 @@
 import React from 'react'
 // import { validateField } from '../../utils/validations'
+import { validateForm } from '../../utils/validations';
 import Input from '../Input/Input';
+import { supabase } from '../../utils/supabaseClient';
 
 export const FormSignUp = ({ onSuccess }) => {
   const [submit, setSubmit] = React.useState(false)
@@ -32,16 +34,28 @@ export const FormSignUp = ({ onSuccess }) => {
         {errors.password && <p className="error">{errors.password}</p>}
       </div>
 
-      <button id='btn-form' onClick={(e) => {
+      <button id='btn-form' onClick={async (e) => {
         e.preventDefault();
-        setSubmit(true);
-        const validationResult = validateForm(form);
-        const hasErrors = Object.values(validationResult).some(msg => msg !== "")
-        if (!hasErrors) {
-          onSuccess()
+        const { data, error } = await supabase.auth.signUp({
+          email: form.email,
+          password: form.password,
+          options: {
+            data: {
+              username: form.user,
+            }
+          }
+        })
+
+        // const validationResult = validateForm(form);
+        // const hasErrors = Object.values(validationResult).some(msg => msg !== "")
+        if (error) {
+          setErrors({ api: error.message })
           console.log('Fechando modal...')
+        } else {
+          console.log("Sucesso! Verifique seu e-mail.", data);
+          onSuccess()
+          setSubmit(true);
         }
-        setErrors(validationResult)
       }}>Inscrever-se</button>
     </form>
   )

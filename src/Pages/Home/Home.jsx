@@ -5,10 +5,8 @@ import Footer from '../../components/Footer/Footer'
 import FeaturesSection from '../../components/FeaturesSection/FeaturesSection'
 import Modal from '../../components/Modal/Modal'
 
-const Home = () => {
-  const [ativo, setAtivo] = React.useState(false);
+const Home = ({ ativo, toggleModal }) => {
 
-  const toggleModal = () => setAtivo(prev => !prev);
 
 
   return (

@@ -3,7 +3,7 @@ import './Header.css';
 import { Link, useNavigate } from 'react-router';
 import { fetchMovieByName } from '../../services/api';
 
-const Header = ({ apikey }) => {
+const Header = ({ apikey, toggleModal }) => {
   const [movieName, setMovieName] = React.useState('');
   const navigate = useNavigate();
 
@@ -29,12 +29,10 @@ const Header = ({ apikey }) => {
       <nav>
         <h1><a href="/">CineBoxd</a></h1>
         <ul>
-          <li>Entrar</li>
+          <li onClick={toggleModal}>Entrar</li>
           <li>Criar conta</li>
           <Link to={`/movies`} ><li>Filmes</li></Link>
-
           <li>Membros</li>
-          <li>Sobre</li>
         </ul>
         <input type="text" value={movieName} onChange={handleChange} onKeyDown={handleKey} />
       </nav>
