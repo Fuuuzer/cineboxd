@@ -1,5 +1,5 @@
 import React from 'react'
-// import { validateField } from '../../utils/validations'
+import { validateField } from '../../utils/validations'
 import { validateForm } from '../../utils/validations';
 import Input from '../Input/Input';
 import { supabase } from '../../utils/supabaseClient';
@@ -36,6 +36,11 @@ export const FormSignUp = ({ onSuccess }) => {
 
       <button id='btn-form' onClick={async (e) => {
         e.preventDefault();
+        const validationResult = validateForm(form);
+        setErrors(validationResult)
+        const hasErrors = Object.values(validationResult).some(msg => msg !== "");
+
+        if (hasErrors) return
         const { data, error } = await supabase.auth.signUp({
           email: form.email,
           password: form.password,
@@ -45,17 +50,15 @@ export const FormSignUp = ({ onSuccess }) => {
             }
           }
         })
+        console.log({ data, error })
 
-        // const validationResult = validateForm(form);
-        // const hasErrors = Object.values(validationResult).some(msg => msg !== "")
+        setSubmit(true);
         if (error) {
           setErrors({ api: error.message })
-          console.log('Fechando modal...')
-        } else {
-          console.log("Sucesso! Verifique seu e-mail.", data);
-          onSuccess()
-          setSubmit(true);
+          return
         }
+        console.log("Sucesso! Verifique seu e-mail.", data);
+        onSuccess()
       }}>Inscrever-se</button>
     </form>
   )
