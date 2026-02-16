@@ -7,21 +7,35 @@ import { supabase } from '../../utils/supabaseClient';
 
 const Modal = ({ ativo, onClose }) => {
   const [errors, setErrors] = React.useState({});
+  const [loading, setLoading] = React.useState(false)
   const [form, setForm] = React.useState({
     email: '',
     user: '',
     password: ''
   });
   function handleSucess() {
-    onClose()
+    setTimeout(() => {
+      setLoading(false)
+      onClose()
+    }, 10000);
+
+
   }
 
   const handleSignup = async () => {
+    setLoading(true)
+
+    // console.log(loading)
+
     const validationResult = validateForm(form);
     setErrors(validationResult)
     const hasErrors = Object.values(validationResult).some(msg => msg !== "");
 
-    if (hasErrors) return
+    if (hasErrors) {
+      setLoading(false)
+      return
+    }
+
     const { data, error } = await supabase.auth.signUp({
       email: form.email,
       password: form.password,
@@ -34,10 +48,12 @@ const Modal = ({ ativo, onClose }) => {
 
     if (error) {
       setErrors({ api: error.message })
+      setLoading(false)
       return
     }
     handleSucess()
-    console.log("Sucesso! Verifique seu e-mail.", data);
+
+    // console.log("Sucesso! Verifique seu e-mail.", data);
   }
 
 
@@ -58,7 +74,7 @@ const Modal = ({ ativo, onClose }) => {
           <button aria-label='Fechar' onClick={onClose}>X</button>
         </div>
         <FormSignUp form={form} setForm={setForm} errors={errors} />
-        <Button handleSignup={handleSignup} />
+        <Button handleSignup={handleSignup} disabled={loading} />
         <p className='modal-have-account'>Já possui conta? <a href="" >Entrar</a></p>
       </div>}
     </>

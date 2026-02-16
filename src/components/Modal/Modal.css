@@ -8,6 +8,8 @@
   padding: 10px 20px;
   bottom: 200px;
   animation: 0.3s animaLeft ease-in-out;
+  display: flex;
+  flex-direction: column;
 }
 
 .modal h2 {

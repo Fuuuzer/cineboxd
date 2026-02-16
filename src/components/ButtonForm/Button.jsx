@@ -2,9 +2,10 @@ import React from 'react'
 import './Button.css'
 
 
-const Button = ({ handleSignup }) => {
+const Button = ({ handleSignup, disabled }) => {
   return (
-    <button id='btn-form' onClick={(e) => {
+
+    <button id='btn-form' disabled={disabled} onClick={(e) => {
       e.preventDefault();
       handleSignup()
     }}>Inscrever-se</button>
