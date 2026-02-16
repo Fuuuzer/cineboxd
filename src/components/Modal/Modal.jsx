@@ -1,10 +1,17 @@
 import React from 'react'
 import './Modal.css'
 import { FormSignUp } from '../SignupForm/SignupForm';
+import Button from '../ButtonForm/Button';
 
-const Modal = ({ ativo, onClose, onSuccess }) => {
-
-  function onSuccess() {
+const Modal = ({ ativo, onClose }) => {
+  const [errors, setErrors] = React.useState({});
+  const [submit, setSubmit] = React.useState(false)
+  const [form, setForm] = React.useState({
+    email: '',
+    user: '',
+    password: ''
+  });
+  function handleSucess() {
     onClose()
   }
 
@@ -24,7 +31,8 @@ const Modal = ({ ativo, onClose, onSuccess }) => {
           <h2>Entre no cineboxd</h2>
           <button aria-label='Fechar' onClick={onClose}>X</button>
         </div>
-        <FormSignUp onSuccess={onSuccess} />
+        <FormSignUp form={form} setForm={setForm} errors={errors} />
+        <Button onSuccess={handleSucess} form={form} errors={errors} setErrors={setErrors} setSubmit={setSubmit} />
         <p className='modal-have-account'>Já possui conta? <a href="" >Entrar</a></p>
       </div>}
     </>
