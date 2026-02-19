@@ -25,8 +25,6 @@ const Modal = ({ ativo, onClose }) => {
   const handleSignup = async () => {
     setLoading(true)
 
-    // console.log(loading)
-
     const validationResult = validateForm(form);
     setErrors(validationResult)
     const hasErrors = Object.values(validationResult).some(msg => msg !== "");
