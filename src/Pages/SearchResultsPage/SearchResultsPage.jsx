@@ -19,7 +19,7 @@ const SearchResultsPage = () => {
           <Link to={`/movies/${result.id}`} key={result.id} >
             <div className='movie-card-results'>
               {console.log(imagePath)}
-              <img src={imagePath ? `https://image.tmdb.org/t/p/original/${imagePath}` : fallBack} alt={result.title} />
+              <img className='movie-poster' src={imagePath ? `https://image.tmdb.org/t/p/original/${imagePath}` : fallBack} alt={result.title} />
               {/* <h3>{result.title} <strong>{result.release_date}</strong></h3> */}
             </div>
           </Link>

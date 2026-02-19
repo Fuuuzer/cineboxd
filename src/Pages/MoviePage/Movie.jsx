@@ -75,7 +75,7 @@ const Movie = ({ ativo, toggleModal }) => {
             }}
           >
             {ativo && <Modal ativo={ativo} onClose={toggleModal} />}
-            <img src={imagePath ? `https://image.tmdb.org/t/p/original/${imagePath}` : fallBack} alt={movie.title} />
+            <img className='movie-poster' src={imagePath ? `https://image.tmdb.org/t/p/original/${imagePath}` : fallBack} alt={movie.title} />
             <div className='movie-infos'>
 
               <h2>{movie.title}</h2>

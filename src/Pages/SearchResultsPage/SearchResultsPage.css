@@ -3,23 +3,20 @@
   margin: 10rem auto 2rem auto;
   padding: 10px;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
   gap: 25px;
 
   .movie-card-results {
-    /* border: 1px solid red; */
-    padding: 10px;
-    display: flex;
-    /* justify-content: center; */
-    gap: 10px;
-
     strong {
       font-weight: 300;
     }
     img {
-      max-width: 100%;
+      width: 100%;
       cursor: pointer;
+      aspect-ratio: 2 /3;
       transition: 0.1s;
+      object-fit: cover;
+      background: #0f0f0f;
 
       &:hover {
         scale: 1.05;
