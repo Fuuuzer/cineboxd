@@ -3,11 +3,14 @@ import { fetchMovieById, fetchCasting } from '../../services/api'
 import { useParams } from 'react-router';
 import './Movie.css'
 import { Link } from 'react-router'
+import Modal from '../../components/Modal/Modal';
 
 
-const Movie = () => {
+const Movie = ({ ativo, toggleModal }) => {
   const [movie, setMovie] = React.useState([]);
   const [movieCasting, setMovieCasting] = React.useState([]);
+  const imagePath = movie.poster_path || movie.backdrop_path;
+  const fallBack = '/fallBackImg.jpg'
   const [isLoading, setIsLoading] = React.useState(true);
   const [reviewData, setReviewData] = React.useState({
     review: '',
@@ -71,7 +74,8 @@ const Movie = () => {
               backgroundRepeat: 'no-repeat',
             }}
           >
-            <img src={`https://image.tmdb.org/t/p/original/${movie.poster_path || movie.backdrop_path}`} alt={movie.title} />
+            {ativo && <Modal ativo={ativo} onClose={toggleModal} />}
+            <img src={imagePath ? `https://image.tmdb.org/t/p/original/${imagePath}` : fallBack} alt={movie.title} />
             <div className='movie-infos'>
 
               <h2>{movie.title}</h2>
