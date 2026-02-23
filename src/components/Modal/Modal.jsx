@@ -68,7 +68,7 @@ const Modal = ({ ativo, onClose }) => {
     <>
       {ativo && < div className="modal" >
         <div className='modal-header'>
-          <h2>Entre no cineboxd</h2>
+          <h2 className='modal-title'>Entre no cineboxd</h2>
           <button className='modal-close' aria-label='Fechar' onClick={onClose}>X</button>
         </div>
         <FormSignUp form={form} setForm={setForm} errors={errors} />

@@ -1,18 +1,19 @@
 .modal {
-  position: absolute;
-  align-self: center;
-  max-width: 100%;
-  max-height: fit-content;
+  z-index: 99999;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: fit-content;
+  overflow-y: hidden;
   border-radius: 4px;
   background: #1a1a1a;
   padding: 10px 20px;
-  bottom: 200px;
-  animation: 0.3s animaLeft ease-in-out;
   display: flex;
   flex-direction: column;
 }
 
-.modal h2 {
+.modal .modal-title {
   text-transform: uppercase;
   font-weight: 300;
   font-size: 1.5rem;
