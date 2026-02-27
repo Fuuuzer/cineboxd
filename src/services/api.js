@@ -1,18 +1,26 @@
-import axios from "axios";
+import axios, { all } from "axios";
 
 const api = axios.create({
   baseURL: "https://api.themoviedb.org/3/movie/",
 });
 
-export const fetchPopularMovies = async (apiKey) => {
+export const fetchPopularMovies = async (apiKey, page, signal) => {
   try {
     const res = await api.get(
-      `popular?api_key=${apiKey}&language=pt-BR&page=1`,
+      `popular?api_key=${apiKey}&language=pt-BR&page=${page}`,
+      { signal },
     );
-    const allPopularMovies = res.data.results;
-    return allPopularMovies;
+    return {
+      results: res.data.results,
+      totalPages: res.data.total_pages,
+    };
   } catch (error) {
-    console.log(error);
+    if (error.name === "CanceledError") {
+      return null;
+    }
+
+    console.error(error);
+    return null;
   }
 };
 

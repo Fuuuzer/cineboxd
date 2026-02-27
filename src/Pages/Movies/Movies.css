@@ -27,4 +27,9 @@ img {
       scale: 1.05;
     }
   }
+
+  .sentinel {
+    width: 100%;
+    background: red;
+  }
 }

@@ -1,7 +1,6 @@
 import React from 'react'
 import './Home.css'
 import LatestMovies from '../../components/LastMovies/LatestMovies'
-import Footer from '../../components/Footer/Footer'
 import FeaturesSection from '../../components/FeaturesSection/FeaturesSection'
 import Modal from '../../components/Modal/Modal'
 

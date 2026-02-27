@@ -5,14 +5,40 @@ import { Link } from 'react-router';
 
 const Movies = ({ apikey }) => {
   const [movies, setMovies] = React.useState([]);
+  const [page, setPage] = React.useState(1);
+  const [loading, setLoading] = React.useState(false);
+  const sentinelRef = React.useRef(null);
+  const maxPages = 15;
 
   React.useEffect(() => {
+    const controller = new AbortController();
+
     const getMovies = async () => {
-      const moviesData = await fetchPopularMovies(apikey);
-      setMovies(moviesData);
-    }
+      try {
+        setLoading(true);
+
+        const moviesData = await fetchPopularMovies(
+          apikey,
+          page,
+          controller.signal
+        );
+        if (!moviesData) return;
+        setMovies(prev => [...prev, ...moviesData.results]);
+      } catch (err) {
+        if (err.name !== 'AbortError') {
+          console.error(err);
+        }
+      } finally {
+        setLoading(false);
+      }
+    };
+
     getMovies()
-  }, [apikey]);
+
+    return () => {
+      controller.abort()
+    }
+  }, [apikey, page]);
 
   return (
 
@@ -24,6 +50,7 @@ const Movies = ({ apikey }) => {
           </div>
         </Link>
       ))}
+      <div ref={sentinelRef} className='sentinel'>sentinel div</div>
     </div>
   )
 }
