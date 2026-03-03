@@ -6,10 +6,12 @@ import { Link } from 'react-router'
 const LatestMovies = () => {
   const [movies, setMovies] = React.useState([]);
   const apiKey = import.meta.env.VITE_API_KEY;
+  let page = 1;
 
   React.useEffect(() => {
     const getMovies = async () => {
-      const moviesData = await fetchPopularMovies(apiKey);
+      const moviesDataFetch = await fetchPopularMovies(apiKey, page);
+      const moviesData = moviesDataFetch.results;
       setMovies(moviesData.slice(0, 5));
     };
 
