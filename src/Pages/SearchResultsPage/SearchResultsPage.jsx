@@ -1,14 +1,16 @@
 import React from 'react'
 import { Link, useLocation } from 'react-router'
 import './SearchResultsPage.css'
+import { useMoviesPagination } from '../../hooks/useMoviesPagination';
 
 
 
-const SearchResultsPage = () => {
+const SearchResultsPage = ({ apikey }) => {
   const location = useLocation();
   const { results, searchTerm } = location.state || {};
 
   const fallBack = '/fallBackImg.jpg';
+
 
   return (
 

@@ -22,7 +22,7 @@ function App() {
           <Route path="/" element={<Home apikey={apiKey} ativo={modalAtivo} toggleModal={toggleModal} />} />
           <Route path="/movies/:id" element={<Movie ativo={modalAtivo} toggleModal={toggleModal} />} />
           <Route path="/movies" element={<Movies apikey={apiKey} ativo={modalAtivo} toggleModal={toggleModal} />} />
-          <Route path="/resultados" element={<SearchResultsPage ativo={modalAtivo} toggleModal={toggleModal} />} />
+          <Route path="/resultados" element={<SearchResultsPage ativo={modalAtivo} apikey={apiKey} toggleModal={toggleModal} />} />
         </Routes>
         <Footer />
       </div>

@@ -1,44 +1,11 @@
 import React from 'react'
-import { fetchPopularMovies } from '../../services/api';
 import './Movies.css'
 import { Link } from 'react-router';
+import { useMoviesPagination } from '../../hooks/useMoviesPagination';
 
 const Movies = ({ apikey }) => {
-  const [movies, setMovies] = React.useState([]);
-  const [page, setPage] = React.useState(1);
-  const [loading, setLoading] = React.useState(false);
-  const sentinelRef = React.useRef(null);
-  const maxPages = 15;
 
-  React.useEffect(() => {
-    const controller = new AbortController();
-
-    const getMovies = async () => {
-      try {
-        setLoading(true);
-
-        const moviesData = await fetchPopularMovies(
-          apikey,
-          page,
-          controller.signal
-        );
-        if (!moviesData) return;
-        setMovies(prev => [...prev, ...moviesData.results]);
-      } catch (err) {
-        if (err.name !== 'AbortError') {
-          console.error(err);
-        }
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    getMovies()
-
-    return () => {
-      controller.abort()
-    }
-  }, [apikey, page]);
+  const { movies, loading, sentinelRef } = useMoviesPagination(apikey)
 
   return (
 
