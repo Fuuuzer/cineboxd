@@ -46,10 +46,10 @@ export const fetchCasting = async (apiKey, movieId) => {
   }
 };
 
-export const fetchMovieByName = async (apiKey, movieName) => {
+export const fetchMovieByName = async (apiKey, movieName, page) => {
   try {
     const res = await api.get(
-      `https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=${movieName}`,
+      `https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=${movieName}&page=${page}`,
     );
     const movieData = res.data;
     //  movieData.results;

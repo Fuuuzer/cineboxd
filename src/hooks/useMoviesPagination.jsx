@@ -1,8 +1,8 @@
 import React from 'react'
-import { fetchPopularMovies } from '../services/api';
+import { fetchMovieByName, fetchPopularMovies } from '../services/api';
 fetchPopularMovies
 
-export const useMoviesPagination = (apikey, maxPages = 15) => {
+export const useMoviesPagination = (apikey, searchTerm, maxPages = 15) => {
   const [movies, setMovies] = React.useState([]);
   const [page, setPage] = React.useState(1);
   const [loading, setLoading] = React.useState(false);
@@ -10,35 +10,51 @@ export const useMoviesPagination = (apikey, maxPages = 15) => {
 
   const sentinelRef = React.useRef(null);
 
+
+
   React.useEffect(() => {
     const controller = new AbortController();
+
 
     const getMovies = async () => {
       try {
         setLoading(true);
+        let currentResults = [];
+        if (searchTerm) {
+          const searchData = await fetchMovieByName(apikey, searchTerm, page);
+          currentResults = searchData
+        } else {
+          const popularData = await fetchPopularMovies(
+            apikey,
+            page,
+            controller.signal
+          );
+          currentResults = popularData?.results || [];
+        }
 
-        const moviesData = await fetchPopularMovies(
-          apikey,
-          page,
-          controller.signal
-        );
-        if (!moviesData) return;
-        setMovies(prev => [...prev, ...moviesData.results]);
+        if (!currentResults) return;
+        setMovies(prev => (page === 1 ? currentResults : [...prev, ...currentResults]));
+
       } catch (err) {
         if (err.name !== 'AbortError') {
           console.error(err);
         }
       } finally {
         setLoading(false);
-      }
-    };
+      };
+    }
 
     getMovies()
-
     return () => {
       controller.abort()
     }
-  }, [apikey, page]);
+  }, [apikey, page, searchTerm]);
+
+  React.useEffect(() => {
+
+    setMovies([]);
+    setPage(1)
+  }, [searchTerm]);
 
   React.useEffect(() => {
     if (loading) return
@@ -52,7 +68,6 @@ export const useMoviesPagination = (apikey, maxPages = 15) => {
         setPage(prev => prev + 1)
       }
     });
-
 
     // serve para o observer "vigiar" tal elemento HTML
     if (sentinelRef.current) {
