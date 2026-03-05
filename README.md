@@ -28,6 +28,7 @@ Inspirado em plataformas como o **Letterboxd**, o projeto foi criado com o objet
 | ⚡ **Vite** | Ferramenta de build rápida e leve |
 | 🌐 **Axios** | Requisições HTTP para a API do TMDB |
 | 🎨 **CSS** | Estilização da interface e responsividade |
+| ⚛️ **ReactRouter** | Biblioteca principal da interface |
 
 ---
 
@@ -35,6 +36,7 @@ Inspirado em plataformas como o **Letterboxd**, o projeto foi criado com o objet
 
 - 🏆 Exibição de filmes populares
 - 🎞️ Página com sinopse, nota e pôster  
+- 🎞️ Criação de conta via supabase  
 
 ---
 
@@ -42,7 +44,6 @@ Inspirado em plataformas como o **Letterboxd**, o projeto foi criado com o objet
 
 - 🪪 Sistema de **login e cadastro**  
 - ⭐ **Avaliação e comentários** de filmes  
-- 🎬 Página individual de cada filme com **reviews da comunidade**  
 - 📁 Criação de **listas personalizadas** (favoritos, assistir depois, etc.)
 
 ---
@@ -63,6 +64,8 @@ npm install
 
 # Crie um arquivo .env e adicione sua chave TMDB
 VITE_API_KEY=sua_chave_aqui
+VITE_SUPABASE_URL=sua_url_aqui
+VITE_SUPABASE_ANON_KEY=sua_chave_aqui
 
 # Inicie o servidor
 npm run dev
