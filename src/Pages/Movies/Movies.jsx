@@ -17,7 +17,9 @@ const Movies = ({ apikey }) => {
           </div>
         </Link>
       ))}
-      <div ref={sentinelRef} className='sentinel'>sentinel div</div>
+      <div ref={sentinelRef} className='sentinel'>
+        {loading && <div>Carregando filmes</div>}
+      </div>
     </div>
   )
 }

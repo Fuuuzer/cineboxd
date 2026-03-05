@@ -62,7 +62,7 @@ export const useMoviesPagination = (apikey, maxPages = 15) => {
     //funcao de limpeza
     return () => {
       if (sentinelRef.current) {
-        observer.disconnect() // desconectar o vigia
+        observer.disconnect() // desconectar o obersevr
       }
 
     }

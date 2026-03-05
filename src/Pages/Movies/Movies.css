@@ -6,9 +6,9 @@ img {
   width: 60vw;
   margin: 10rem auto 2rem auto;
   padding: 10px;
-  display: flex;
-  justify-content: space-between;
-  gap: 25px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 10px;
   flex-wrap: wrap;
   position: relative;
 
@@ -16,7 +16,7 @@ img {
     align-items: center;
     /* border: 1px solid red; */
     img {
-      width: 200px;
+      min-width: 100px;
       height: 100%;
       object-fit: cover;
       display: block;
