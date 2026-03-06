@@ -9,6 +9,9 @@ const SearchResultsPage = ({ apikey }) => {
   const location = useLocation();
   const { results, searchTerm } = location.state || {};
 
+  const { movies, loading, sentinelRef } = useMoviesPagination(apikey);
+
+
   const fallBack = '/fallBackImg.jpg';
 
 

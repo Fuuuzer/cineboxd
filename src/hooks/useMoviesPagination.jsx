@@ -2,7 +2,7 @@ import React from 'react'
 import { fetchPopularMovies } from '../services/api';
 fetchPopularMovies
 
-export const useMoviesPagination = (apikey, maxPages = 15) => {
+export const useMoviesPagination = (apikey, maxPages = 15, searchTerm) => {
   const [movies, setMovies] = React.useState([]);
   const [page, setPage] = React.useState(1);
   const [loading, setLoading] = React.useState(false);

@@ -3,22 +3,32 @@ import './Movies.css'
 import { Link } from 'react-router';
 import { useMoviesPagination } from '../../hooks/useMoviesPagination';
 
-const Movies = ({ apikey }) => {
+const Movies = ({ apikey, searchTerm, location }) => {
 
-  const { movies, loading, sentinelRef } = useMoviesPagination(apikey)
+  const { movies, loading, sentinelRef } = useMoviesPagination(apikey);
+
+  const fallBack = '/fallBackImg.jpg';
 
   return (
 
+
     <div className='movies-container'>
-      {movies.map((movie) => (
-        <Link to={`/movies/${movie.id}`} key={movie.id} >
-          <div className='movies' key={movie.id}>
-            <img src={`https://image.tmdb.org/t/p/original/${movie.poster_path || movie.backdrop_path}`} alt={movie.title} />
-          </div>
-        </Link>
-      ))}
+      {movies.map((movie) => {
+
+        const imagePath = movie.poster_path || movie.backdrop_path;
+        console.log(imagePath)
+        return (
+          <Link to={`/movies/${movie.id}`} key={movie.id} >
+            <div className='movies' key={movie.id}>
+              <img src={imagePath
+                ? `https://image.tmdb.org/t/p/original/${imagePath}` : fallBack} alt={movie.title} />
+            </div>
+          </Link>
+        )
+      })}
+
       <div ref={sentinelRef} className='sentinel'>
-        {loading && <div>Carregando filmes</div>}
+        {loading && <>Carregando filmes</>}
       </div>
     </div>
   )
