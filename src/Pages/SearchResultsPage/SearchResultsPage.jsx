@@ -7,9 +7,8 @@ import { useMoviesPagination } from '../../hooks/useMoviesPagination';
 
 const SearchResultsPage = ({ apikey }) => {
   const location = useLocation();
-  const { results, searchTerm } = location.state || {};
-
-  const { movies, loading, sentinelRef } = useMoviesPagination(apikey);
+  const { searchTerm } = location.state || {};
+  const { movies, loading, sentinelRef } = useMoviesPagination(apikey, searchTerm)
 
 
   const fallBack = '/fallBackImg.jpg';
@@ -18,18 +17,20 @@ const SearchResultsPage = ({ apikey }) => {
   return (
 
     <div className="search-results-container">
-      {results.map((result) => {
-        const imagePath = result.poster_path || result.backdrop_path;
+      {movies.map((movie) => {
+        const imagePath = movie.poster_path || movie.backdrop_path;
         return (
-          <Link to={`/movies/${result.id}`} key={result.id} >
+          <Link to={`/movies/${movie.id}`} key={movie.id} >
             <div className='movie-card-results'>
-              {console.log(imagePath)}
-              <img className='movie-poster' src={imagePath ? `https://image.tmdb.org/t/p/original/${imagePath}` : fallBack} alt={result.title} />
+              <img className='movie-poster' src={imagePath ? `https://image.tmdb.org/t/p/original/${imagePath}` : fallBack} alt={movie.title} />
               {/* <h3>{result.title} <strong>{result.release_date}</strong></h3> */}
             </div>
           </Link>
         )
       })}
+      <div ref={sentinelRef} className='sentinel'>
+        sentinela
+      </div>
     </div >
   )
 }
