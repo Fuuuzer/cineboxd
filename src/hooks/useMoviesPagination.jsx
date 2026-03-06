@@ -51,7 +51,7 @@ export const useMoviesPagination = (apikey, searchTerm, maxPages = 15) => {
   }, [apikey, page, searchTerm]);
 
   React.useEffect(() => {
-
+    console.log(page)
     setMovies([]);
     setPage(1)
   }, [searchTerm]);
@@ -64,7 +64,8 @@ export const useMoviesPagination = (apikey, searchTerm, maxPages = 15) => {
       const target = entries[0];
 
       //isIntersecting verifica se o elemento observado ficou na área visível
-      if (target.isIntersecting) {
+      if (target.isIntersecting && !loading && movies.length > 0) {
+        console.log(`sentinvel visible ${page}`)
         setPage(prev => prev + 1)
       }
     });

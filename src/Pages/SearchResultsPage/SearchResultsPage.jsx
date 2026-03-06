@@ -29,7 +29,7 @@ const SearchResultsPage = ({ apikey }) => {
         )
       })}
       <div ref={sentinelRef} className='sentinel'>
-        sentinela
+        {loading && <>Carregando filmes</>}
       </div>
     </div >
   )
